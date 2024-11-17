@@ -37,8 +37,10 @@ int main(){
     int len = (1<<1);
     char *case1 = (char*)malloc(len*sizeof(char));
     //memset(case1, '1', len);  // must set
+    printf("\n no memset \n");
     vuln(case1, strnlen(case1, 0x1000));
     
+    printf("\n with memset \n");
     memset(case1, '1', len);  // must set
     vuln(case1, strnlen(case1, 0x1000));
     
