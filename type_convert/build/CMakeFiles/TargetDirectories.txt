@@ -1,3 +1,0 @@
-/home/sanszhu/code/code/arasaka/type_convert/build/CMakeFiles/main.dir
-/home/sanszhu/code/code/arasaka/type_convert/build/CMakeFiles/edit_cache.dir
-/home/sanszhu/code/code/arasaka/type_convert/build/CMakeFiles/rebuild_cache.dir
