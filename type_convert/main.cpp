@@ -30,19 +30,26 @@ int main(){
 
     char *case0 = "123";
     vuln(case0, strnlen(case0, 0x1000));
-    printf("%b \n", case0[3]);
+    printf("end %b %b %b %b \n", case0[0], case0[1], case0[2], case0[3]);
 
     // strnlen return is size_t will overflow in size_t to char convert
     // malloc vs array
-    int len = (1<<8);
-    //  malloc does not have length like array
+    int len = (1<<1);
     char *case1 = (char*)malloc(len*sizeof(char));
-    vuln(case1, strnlen(case1, 0x1000));
-
-    case1[len-1] = '\0';
-    std::cout << (char)case1[len-1] << std::endl;
+    //memset(case1, '1', len);  // must set
     vuln(case1, strnlen(case1, 0x1000));
     
+    memset(case1, '1', len);  // must set
+    vuln(case1, strnlen(case1, 0x1000));
+    
+    len = (1<<7);
+    memset(case1, '1', len);  // must set
+    vuln(case1, strnlen(case1, 0x1000));
+
+    len = (1<<8);
+    memset(case1, '1', len);  // must set
+    vuln(case1, strnlen(case1, 0x1000));
+
 
     return 0;
 }
