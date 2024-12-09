@@ -13,5 +13,10 @@ int main(){
 
 /*
 set disassembly-flavor intel
-
+b main
+disas
+x/1xb $rip
+x/1xw $rip
+disas unreachablefunction
+set $rip = 0x0000555555555149
 */
