@@ -15,8 +15,11 @@ int main(){
 set disassembly-flavor intel
 b main
 disas
-x/1xb $rip
-x/1xw $rip
+rip is eip in x64
+x/1xb $eip
+x/1xw $eip
 disas unreachablefunction
-set $rip = 0x0000555555555149
+set $eip = 0x0000555555555149
 */
+
+//   Notice: this is only for x86 32
