@@ -10,7 +10,7 @@ qemu-system-x86_64 \
     -enable-kvm \
     -cdrom archlinux-2024.12.01-x86_64.iso \
     -boot order=d \
-    -drive file=backup_img,format=raw
+    -drive file=test_img,format=raw
 
 
 mkfs.ext4 /dev/sda3
