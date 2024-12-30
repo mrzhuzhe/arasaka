@@ -10,7 +10,7 @@ qemu-system-x86_64 \
     -enable-kvm \
     -cdrom archlinux-2024.12.01-x86_64.iso \
     -boot order=d \
-    -drive file=my_img,format=raw
+    -drive file=backup_img,format=raw
 
 
 mkfs.ext4 /dev/sda3
@@ -28,3 +28,8 @@ arch-chroot /mnt
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 
 grub-mkconfig -o /boot/grub/grub.cfg
+
+//  https://wiki.archlinux.org/title/Systemd-networkd#Wired_adapter_using_DHCP
+
+systemctl restart systemd-networkd
+systemctl restart systemd-resolved
