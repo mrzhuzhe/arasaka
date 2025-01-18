@@ -37,10 +37,13 @@ int main(int argc, char *argv[]){
         } else {
             printf("Server received %ld bytes from %s %u \n", (long)numBytes, claddrStr, ntohs(claddr.sin_port));
         }
-
+        
+        // bussiness  
         for (j=0;j<numBytes;j++){
             buf[j] = toupper((unsigned char)buf[j]);           
         }
+        // bussiness  
+
         if (sendto(sfd, buf, numBytes, 0, (struct sockaddr *)&claddr, len) != numBytes) {
              printf("sv sendto fail\n");
         }
