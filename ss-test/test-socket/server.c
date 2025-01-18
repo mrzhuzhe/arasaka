@@ -19,7 +19,7 @@ int main(int argc, char *argv[]){
     sfd = socket(AF_INET, SOCK_DGRAM, 0);
     if (sfd == -1) printf("sv socket fail\n"); 
 
-    memset(&svaddr, 0 , sizeof(svaddr));
+    //memset(&svaddr, 0 , sizeof(svaddr));
     svaddr.sin_family = AF_INET;
     svaddr.sin_addr.s_addr  = htonl(INADDR_ANY);
     svaddr.sin_port = htons(50001);    
