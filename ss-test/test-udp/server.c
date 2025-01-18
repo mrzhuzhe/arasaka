@@ -21,7 +21,9 @@ int main(int argc, char *argv[]){
 
     //memset(&svaddr, 0 , sizeof(svaddr));
     svaddr.sin_family = AF_INET;
-    svaddr.sin_addr.s_addr  = htonl(INADDR_ANY);
+    char *p_url = "127.0.0.1";
+    inet_pton(AF_INET, p_url, &svaddr.sin_addr.s_addr);
+    //svaddr.sin_addr.s_addr  = htonl(INADDR_ANY);
     svaddr.sin_port = htons(50001);    
 
     if (bind(sfd, (struct sockaddr *)&svaddr, sizeof(svaddr)) ==-1 ) printf("sv bind fail\n");
