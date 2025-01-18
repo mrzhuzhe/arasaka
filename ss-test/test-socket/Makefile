@@ -1,13 +1,13 @@
 CFLAGS = 
 LDFLAGS = 
 
-sockets_test: sockets.c
-	$(CC) $(CFLAGS) -o outputs/sockets.o *.c $(LDFLAGS)
+sockets_test:
+	$(CC) $(CFLAGS) -o outputs/server.o server.c utils.c $(LDFLAGS) 
+	$(CC) $(CFLAGS) -o outputs/client.o client.c $(LDFLAGS)
 
 .PHONY: test clean
 
-test: sockets_test
-	./outputs/sockets.o
+test: sockets_test	
 
 clean:
-	rm -f *.o
+	rm -f *.o rm -f outputs/*.o
