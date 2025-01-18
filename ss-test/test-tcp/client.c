@@ -16,6 +16,7 @@ int main(int argc, char *argv[]){
     // AF_UNIX is on same host 
     sfd = socket(AF_INET, SOCK_DGRAM, 0);
     svaddr.sin_family = AF_INET;
+    char * localhost = "127.0.0.1"
     svaddr.sin_addr.s_addr  = INADDR_ANY;
     svaddr.sin_port = htons(50001);
 
