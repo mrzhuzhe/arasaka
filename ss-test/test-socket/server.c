@@ -17,18 +17,19 @@ int main(int argc, char *argv[]){
     ssize_t numBytes;
 
     sfd = socket(AF_INET, SOCK_DGRAM, 0);
-    svaddr.sin_family = AF_INET;
-    svaddr.sin_addr.s_addr  = INADDR_ANY;
-    svaddr.sin_port = htons(50001);
-    
-    //memset(&svaddr, 0 , sizeof(svaddr));
+    if (sfd == -1) printf("sv socket fail\n"); 
 
-    if (bind(sfd, (struct sockaddr *)&svaddr, 0) ==-1 ) printf("sv bind fail\n");
+    memset(&svaddr, 0 , sizeof(svaddr));
+    svaddr.sin_family = AF_INET;
+    svaddr.sin_addr.s_addr  = htonl(INADDR_ANY);
+    svaddr.sin_port = htons(50001);    
+
+    if (bind(sfd, (struct sockaddr *)&svaddr, sizeof(svaddr)) ==-1 ) printf("sv bind fail\n");
 
     for (;;) {
         len = sizeof(struct sockaddr_in);
         numBytes = recvfrom(sfd, buf, 100, 0, (struct sockaddr *)&claddr, &len);
-        if (numBytes) {
+        if (numBytes == -1) {
             printf("sv recvfrom fail\n");
         }
         if (inet_ntop(AF_INET, &claddr.sin_addr, claddrStr, INET_ADDRSTRLEN) == NULL){
@@ -38,9 +39,8 @@ int main(int argc, char *argv[]){
         }
 
         for (j=0;j<numBytes;j++){
-            buf[j] = toupper((unsigned char)buf[j]);
+            buf[j] = toupper((unsigned char)buf[j]);           
         }
-
         if (sendto(sfd, buf, numBytes, 0, (struct sockaddr *)&claddr, len) != numBytes) {
              printf("sv sendto fail\n");
         }

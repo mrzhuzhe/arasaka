@@ -30,6 +30,7 @@ int main(int argc, char *argv[]){
          printf("recvfrom fail \n");
     }
     
+    printf("Response %d: %s\n", 123, resp);
 
     return 0;
 }
