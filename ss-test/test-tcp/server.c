@@ -42,8 +42,7 @@ int main(int argc, char *argv[]){
             // fputs(buf, stdout);
             printf("%s \n", buf);            
         }
-        strncpy(buf, msg, strlen(msg)+1);
-        if (write(cfd, buf, strlen(msg)+1) == -1){
+        if (write(cfd, msg, strlen(msg)) == -1){
             printf("write fail \n");
         }
 
