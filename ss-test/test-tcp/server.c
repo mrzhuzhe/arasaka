@@ -5,49 +5,51 @@
 #include <ctype.h>
 #include <string.h>
 #include <arpa/inet.h>
+#include <unistd.h>
 
 int main(int argc, char *argv[]){
     printf("test abc \n");
     test_fn();
-    struct sockaddr_in svaddr, claddr;
-    int sfd = 0, j;
+    struct sockaddr_in svaddr;
+    int sfd = 0, cfd = 0;
     socklen_t len;
     char buf[100];
-    char claddrStr[INET_ADDRSTRLEN];
     ssize_t numBytes;
 
-    sfd = socket(AF_INET, SOCK_DGRAM, 0);
+    sfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sfd == -1) printf("sv socket fail\n"); 
 
     //memset(&svaddr, 0 , sizeof(svaddr));
     svaddr.sin_family = AF_INET;
-    svaddr.sin_addr.s_addr  = htonl(INADDR_ANY);
+    char * localhost = "127.0.0.1";
+    if(inet_pton(AF_INET, localhost, &svaddr.sin_addr) <= 0){
+        printf("inet_pton fail \n");
+    }
     svaddr.sin_port = htons(50001);    
 
     if (bind(sfd, (struct sockaddr *)&svaddr, sizeof(svaddr)) ==-1 ) printf("sv bind fail\n");
 
+    if(listen(sfd, 5) == -1) printf("listen fial \n");
+    char *msg = "test back \n";
     for (;;) {
-        len = sizeof(struct sockaddr_in);
-        numBytes = recvfrom(sfd, buf, 100, 0, (struct sockaddr *)&claddr, &len);
-        if (numBytes == -1) {
-            printf("sv recvfrom fail\n");
+        cfd = accept(sfd, NULL, NULL);
+        if (cfd == -1) {
+            printf("accept fail \n");
         }
-        if (inet_ntop(AF_INET, &claddr.sin_addr, claddrStr, INET_ADDRSTRLEN) == NULL){
-            printf("Could not convert client address to string \n");
-        } else {
-            printf("Server received %ld bytes from %s %u \n", (long)numBytes, claddrStr, ntohs(claddr.sin_port));
-        }
-        
-        // bussiness  
-        for (j=0;j<numBytes;j++){
-            buf[j] = toupper((unsigned char)buf[j]);           
-        }
-        // bussiness  
 
-        if (sendto(sfd, buf, numBytes, 0, (struct sockaddr *)&claddr, len) != numBytes) {
-             printf("sv sendto fail\n");
+        if ((numBytes = read(cfd, buf, 100))>0)
+        {
+            // fputs(buf, stdout);
+            printf("%s \n", buf);            
         }
+        strncpy(buf, msg, sizeof(msg)+1);
+        if (write(cfd, buf, sizeof(msg)+1) == -1){
+            printf("write fail \n");
+        }
+
+        close(cfd);
     }
+
 
     return 0;
 }

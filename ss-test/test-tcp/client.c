@@ -3,37 +3,43 @@
 #include <sys/socket.h>
 #include <string.h>
 #include <arpa/inet.h>
+#include <unistd.h>
 
 int main(int argc, char *argv[]){
     
     struct sockaddr_in svaddr;
     int sfd = 0, j;
-    size_t msgLen;
     ssize_t numBytes;
-    char resp[100];
+    char buf[100];
 
     //memset(&svaddr, 0 , sizeof(svaddr));
     // AF_UNIX is on same host 
-    sfd = socket(AF_INET, SOCK_DGRAM, 0);
+    sfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (sfd == -1) {
+        printf("socket fail \n");
+    }
     svaddr.sin_family = AF_INET;
-    char * localhost = "127.0.0.1"
-    svaddr.sin_addr.s_addr  = INADDR_ANY;
+    char * localhost = "127.0.0.1";
     svaddr.sin_port = htons(50001);
 
-    if(inet_pton(AF_INET, "127.0.0.1", &svaddr.sin_addr) <= 0){
+    if(inet_pton(AF_INET, localhost, &svaddr.sin_addr) <= 0){
         printf("inet_pton fail \n");
     }
-    char * msg = "test msg";
-    msgLen = strlen(msg);
-    if (sendto(sfd, msg, msgLen, 0, (struct sockaddr *)&svaddr, sizeof(struct sockaddr_in)) != msgLen){
-        printf("sendto fail \n");
+    
+    if (connect(sfd, (struct sockaddr *)&svaddr, sizeof(svaddr)) == -1){
+        printf("connect fail \n");
     }
 
-    if (recvfrom(sfd, resp, 100, 0, NULL, NULL) == -1) {
-         printf("recvfrom fail \n");
+    char *msg = "test send \n";
+    if ((numBytes = write(sfd, msg, sizeof(msg)+1)) == -1 ){
+        printf("send fail");
     }
-    
-    printf("Response %d: %s\n", 123, resp);
+
+    if ((numBytes = read(sfd, buf, 100))>0){
+        //buf[numBytes] = 0;
+        //fputs(buf, stdout);
+        printf("%s \n", buf);
+    }
 
     return 0;
 }
