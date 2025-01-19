@@ -31,7 +31,7 @@ int main(int argc, char *argv[]){
     }
 
     char *msg = "test send \n";
-    if ((numBytes = write(sfd, msg, sizeof(msg)+1)) == -1 ){
+    if ((numBytes = write(sfd, msg, strlen(msg))) == -1 ){
         printf("send fail");
     }
 
@@ -41,5 +41,6 @@ int main(int argc, char *argv[]){
         printf("%s \n", buf);
     }
 
+    close(sfd);
     return 0;
 }

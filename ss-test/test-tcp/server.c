@@ -19,7 +19,7 @@ int main(int argc, char *argv[]){
     sfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sfd == -1) printf("sv socket fail\n"); 
 
-    //memset(&svaddr, 0 , sizeof(svaddr));
+    memset(&svaddr, 0 , sizeof(svaddr));
     svaddr.sin_family = AF_INET;
     char * localhost = "127.0.0.1";
     if(inet_pton(AF_INET, localhost, &svaddr.sin_addr) <= 0){
@@ -28,7 +28,7 @@ int main(int argc, char *argv[]){
     svaddr.sin_port = htons(50001);    
 
     if (bind(sfd, (struct sockaddr *)&svaddr, sizeof(svaddr)) ==-1 ) printf("sv bind fail\n");
-
+    
     if(listen(sfd, 5) == -1) printf("listen fial \n");
     char *msg = "test back \n";
     for (;;) {
@@ -42,8 +42,8 @@ int main(int argc, char *argv[]){
             // fputs(buf, stdout);
             printf("%s \n", buf);            
         }
-        strncpy(buf, msg, sizeof(msg)+1);
-        if (write(cfd, buf, sizeof(msg)+1) == -1){
+        strncpy(buf, msg, strlen(msg)+1);
+        if (write(cfd, buf, strlen(msg)+1) == -1){
             printf("write fail \n");
         }
 
