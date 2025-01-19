@@ -16,8 +16,8 @@ int main(int argc, char *argv[]){
     // AF_UNIX is on same host 
     sfd = socket(AF_INET, SOCK_DGRAM, 0);
     svaddr.sin_family = AF_INET;
-    char *p_url = "127.0.0.1";
-    inet_pton(AF_INET, p_url, &svaddr.sin_addr.s_addr);
+    // char *p_url = "127.0.0.1";
+    // inet_pton(AF_INET, p_url, &svaddr.sin_addr.s_addr);
     svaddr.sin_port = htons(50001);
 
     if(inet_pton(AF_INET, "127.0.0.1", &svaddr.sin_addr) <= 0){
