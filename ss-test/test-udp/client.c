@@ -10,7 +10,7 @@ int main(int argc, char *argv[]){
     int sfd = 0, j;
     size_t msgLen;
     ssize_t numBytes;
-    char resp[100];
+    char resp[100] = {0};
 
     //memset(&svaddr, 0 , sizeof(svaddr));
     // AF_UNIX is on same host 

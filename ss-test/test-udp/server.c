@@ -28,6 +28,8 @@ int main(int argc, char *argv[]){
 
     if (bind(sfd, (struct sockaddr *)&svaddr, sizeof(svaddr)) ==-1 ) printf("sv bind fail\n");
 
+    memset((void*)buf, 0, 100*sizeof(char));
+
     for (;;) {
         len = sizeof(struct sockaddr_in);
         numBytes = recvfrom(sfd, buf, 100, 0, (struct sockaddr *)&claddr, &len);
@@ -44,6 +46,8 @@ int main(int argc, char *argv[]){
         for (j=0;j<numBytes;j++){
             buf[j] = toupper((unsigned char)buf[j]);           
         }
+	printf("%s \n", buf);
+
         // bussiness  
 
         if (sendto(sfd, buf, numBytes, 0, (struct sockaddr *)&claddr, len) != numBytes) {

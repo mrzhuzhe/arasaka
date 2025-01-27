@@ -40,7 +40,7 @@ int main(int argc, char *argv[]){
         if ((numBytes = read(cfd, buf, 100))>0)
         {
             // fputs(buf, stdout);
-            printf("%s \n", buf);            
+            printf("%s", buf);            
         }
         if (write(cfd, msg, strlen(msg)) == -1){
             printf("write fail \n");
