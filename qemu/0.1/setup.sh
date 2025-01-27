@@ -29,7 +29,12 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
+ip link 
+
 //  https://wiki.archlinux.org/title/Systemd-networkd#Wired_adapter_using_DHCP
 
 systemctl restart systemd-networkd
 systemctl restart systemd-resolved
+
+
+//  sshd seems need to setup pam
