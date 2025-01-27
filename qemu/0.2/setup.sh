@@ -9,3 +9,5 @@ qemu-system-x86_64 \
     -m 4096 \
     -enable-kvm \
     -drive file=test_img,format=raw
+
+
