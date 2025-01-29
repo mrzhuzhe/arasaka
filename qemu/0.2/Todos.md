@@ -4,7 +4,7 @@
 
 
 # package
-0. grub efimanager
-1. openssh 
-2. git 
+1. grub efimanager
+2. openssh /sudo / git 
 3. gcc / make / gdb
+4. linux-headers
