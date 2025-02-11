@@ -3,6 +3,7 @@
 2. font error
 3. initramfs
 4. vfio
+5. dns pollution
 
 # package
 ## basic 
@@ -14,7 +15,7 @@
 ----------------------
 ## for kernel build test
 
-5. devtools base-devel
+5. devtools base-devel  pacman-contrib
 6. nvidia cuda cuda-toolkit nvidia-utils
 
 # GPU setup refer
@@ -23,3 +24,4 @@
 
 # Kernel build
 1.https://wiki.archlinux.org/title/Kernel/Arch_build_system
+
