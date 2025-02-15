@@ -22,4 +22,6 @@
 1. https://forums.developer.nvidia.com/t/nvidia-smi-no-devices-were-found-vmware-esxi-ubuntu-server-20-04-03-with-rtx3070/202904
 2. https://forums.developer.nvidia.com/t/nvidia-smi-no-devices-were-found-vmware-esxi-ubuntu-server-20-04-03-with-rtx3070/202904/23
 
+# Kernel build
+1.https://wiki.archlinux.org/title/Kernel/Arch_build_system
 
