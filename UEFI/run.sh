@@ -1,9 +1,3 @@
-qemu-system-x86_64 \
-    -net nic,macaddr="$macaddr" \
-    -net user \
-    -drive if=pflash,format=raw,file=./outputs/helloworld.efi \
-    -display vnc=127.0.0.1:0 \
-    -m 4096 \
-    -enable-kvm \
-    -boot order=d \
-    -drive file=test_img,format=raw
+qemu-system-x86_64 -nographic -bios outputs/OVMF.fd \
+-chardev file,path=debug.log,id=edk2-debug \
+-device isa-debugcon,iobase=0x402,chardev=edk2-debug -net none
