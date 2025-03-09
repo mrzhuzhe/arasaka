@@ -22,8 +22,8 @@ qemu-system-x86_64 \
     -net user,hostfwd=tcp::10022-:22 \
     -device vfio-pci,host=01:00.0,multifunction=on \
     -device vfio-pci,host=01:00.1 \
-    -drive if=pflash,format=raw,file=OVMF.fd \
+    -drive if=pflash,format=raw,file=debug/OVMF.fd \
     -m 4096 \
     -enable-kvm \
-    -drive file=my_img,format=raw \
+    -drive file=test_img,format=raw \
     -nographic
