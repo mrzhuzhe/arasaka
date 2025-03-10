@@ -1,6 +1,6 @@
 # Todo
 1. edk boot proccess
-2. bcfg boot mv 1 0 need select .efi to boot
+2. bcfg boot mv 1 0, need select .efi to boot, default uiapp cannot avoid
 
 # efi run
 1. set baseTool and build uefi
