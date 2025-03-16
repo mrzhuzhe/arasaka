@@ -6,3 +6,4 @@
 1. set baseTool and build uefi
 2. run ./Host in Build/platform 
 3. https://github.com/tianocore/tianocore.github.io/wiki/EDK-II-white-papers
+4 .https://github.com/tianocore/edk2-platforms/blob/master/Platform/Loongson/LoongArchQemuPkg/Readme.md
