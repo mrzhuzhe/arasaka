@@ -1,4 +1,4 @@
-## Build UEFI
+## Build loongson UEFI
 ```
 # https://github.com/tianocore/edk2/tree/master/OvmfPkg/LoongArchVirt#readme
 
