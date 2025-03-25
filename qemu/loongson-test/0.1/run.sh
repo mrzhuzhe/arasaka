@@ -5,7 +5,6 @@
 
 # Issue -nographic 
 
-
 printf -v macaddr "52:54:%02x:%02x:%02x:%02x" $(( $RANDOM & 0xff)) $(( $RANDOM & 0xff )) $(( $RANDOM & 0xff)) $(( $RANDOM & 0xff ))
 
 qemu-system-loongarch64 \
@@ -13,7 +12,7 @@ qemu-system-loongarch64 \
     -cpu la464-loongarch-cpu \
     -machine virt \
     -smp 4 \
-    -bios outputs/loongson/QEMU_EFI.fd\
+    -bios outputs/loongson/QEMU_EFI.fd \
     -serial stdio \
     -device virtio-gpu-pci \
     -net nic,macaddr="$macaddr" \
