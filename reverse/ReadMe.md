@@ -3,6 +3,7 @@
 
 
 1. gcc not vectorized  gather scatter
+https://stackoverflow.com/questions/17567029/not-vectorized-not-suitable-for-gather-d-32476-34-d-32475-33
 
 2. https://gcc.gnu.org/onlinedocs/gcc/Developer-Options.html
 -fopt-info-vec
