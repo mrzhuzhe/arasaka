@@ -32,3 +32,7 @@
 *.app
 build
 outputs
+reverse/gcc-pass/case/*.s
+reverse/gcc-pass/case/*.txt
+reverse/gcc-pass/plugin/*.txt
+reverse/gcc-pass/plugin/bin
