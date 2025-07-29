@@ -1,7 +1,7 @@
 #include "stdio.h"
 
 void inner(float* res, unsigned i, unsigned j, unsigned w){
-    res[i*w+j] = (float)(i*w+j);
+    res[i*w+j] = (float)(i*w+j) * (float)(i*w+j);
 }
 
 void loop(float* res, unsigned n, unsigned w){
