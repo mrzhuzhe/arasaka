@@ -23,11 +23,14 @@ all: inst_plugin.so
 inst_plugin.so: $(PLUGIN_SOURCE_FILES)
 	$(HOST_GCC) -shared $(CXXFLAGS) $^ -o $@
 
-test: inst_plugin.so
+helloworld: inst_plugin.so
 	g++ ../case/main.c -fplugin=$(shell pwd)/inst_plugin.so -o bin
 
-test2: inst_plugin.so
+finstfunc: inst_plugin.so
 	g++ ../case/main.c -finstrument-functions -o bin
+
+test: inst_plugin.so
+	g++ ../case/main.c -fplugin=`pwd`/inst_plugin.so -o bin
 
 clean: 
 	rm -f inst_plugin.so bin
