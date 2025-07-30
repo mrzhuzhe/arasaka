@@ -1,3 +1,5 @@
+//  https://gabrieleserra.ml/blog/2020-08-27-an-introduction-to-gcc-and-gccs-plugins.html\
+
 #include <gcc-plugin.h>
 #include <plugin-version.h>
 
