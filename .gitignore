@@ -36,3 +36,5 @@ reverse/gcc-pass/case/*.s
 reverse/gcc-pass/case/*.txt
 reverse/gcc-pass/plugin/*.txt
 reverse/gcc-pass/plugin/bin
+reverse/gcc-pass/plugin/*.dot
+reverse/gcc-pass/plugin/*.pdf
