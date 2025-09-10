@@ -18,6 +18,11 @@ https://godbolt.org/#g:!((g:!((g:!((h:codeEditor,i:(j:1,lang:c%2B%2B,source:'%23
 
 4. gcc code tree-vectorizer.h
 
+5. llvm test-suite
+ https://llvm.org/docs/TestSuiteGuide.html
+ https://github.com/mollybuild/RISCV-Measurement/blob/master/Build-RISCV-LLVM-and-run-testsuite.md
+
+6. llvm-lit
 
 # Done
 
