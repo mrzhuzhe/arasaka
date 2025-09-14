@@ -22,6 +22,16 @@ https://www.frozentux.net/iptables-tutorial/iptables-tutorial.html
 iptables -A INPUT -s 39.156.70.37 -j DROP
 iptables -D INPUT -s 39.156.70.37 -j DROP
 iptables -P INPUT DROP
+
+## ip example
+
+ip -4 -br a
+ip route 
+ip route get 8.8.8.8
+ip route show scope link table all
+ip route show scope global
+cat /etc/iproute2/rt_tables
+
 ```
 
 ## dependence 
