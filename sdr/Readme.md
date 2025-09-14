@@ -12,6 +12,16 @@ sudo screen /dev/ttyUSB1 115200
 sudo sysctl -w net.ipv4.ip_forward=1
 sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 sudo ip route add 192.168.13.0/24 dev eth0 
+
+## iptables example 
+iptables -t mangle -L -n -v
+
+filter mangle nat raw security
+https://www.frozentux.net/iptables-tutorial/iptables-tutorial.html
+
+iptables -A INPUT -s 39.156.70.37 -j DROP
+iptables -D INPUT -s 39.156.70.37 -j DROP
+iptables -P INPUT DROP
 ```
 
 ## dependence 
