@@ -39,3 +39,6 @@ reverse/gcc-pass/plugin/bin
 reverse/gcc-pass/plugin/*.dot
 reverse/gcc-pass/plugin/*.pdf
 nmap/testcases
+target
+*.class
+
