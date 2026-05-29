@@ -32,7 +32,7 @@ int main(){
     size_t count = 0;
     for (int i =0;i<content_size;i=i+4){
         //std::cout << content[i] << std::endl;;
-        size_t found = content[i+2].find("<year>20");
+        size_t found = content[i+2].find("<year>1998");
         //size_t found = content[i+1].find("Mahjong");
         //size_t found = content[i+1].find("Poker");
         if (found!=std::string::npos){
