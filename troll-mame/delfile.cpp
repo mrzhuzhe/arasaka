@@ -33,10 +33,14 @@ int main(){
     for (int i =0;i<content_size;i=i+4){
         //std::cout << content[i] << std::endl;;
         size_t found = content[i+2].find("<year>20");
+        //size_t found = content[i+1].find("Mahjong");
+        //size_t found = content[i+1].find("Poker");
         if (found!=std::string::npos){
             //std::cout << content[i] << std::endl;
             if (std::regex_search(content[i], match, pattern)) {
                 std::cout << "Found: " << match[1].str() << std::endl;
+                // handle this file
+                std::remove(std::string(path + match[1].str() + ".zip").c_str());
             }
             std::cout << content[i+1] << std::endl;
             std::cout << content[i+2] << std::endl;
