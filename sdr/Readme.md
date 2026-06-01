@@ -39,3 +39,4 @@ cat /etc/iproute2/rt_tables
 
 ## problem 
 1. 5g wifi is too close maybe a better way to make it wider 
+2. openwifi-firmware-hw is for fpga

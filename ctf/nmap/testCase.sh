@@ -1,0 +1,25 @@
+# scan finger printer
+nmap -sV -O -v 192.168.1.1
+nmap -sL 6.209.24.0/24 6.207.0.0/22
+
+# 
+# nmap -sV -p 444 starofus.xyz
+# nmap -sC -p 3306 --system-dns starofus.xyz # sV vs sC
+# nmap --top-ports=1000 --min-rate 5000 starofus.xyz
+# nmap --top-ports=2000 --system-dns starofus.xyz
+# Notice cannot get 6379
+# nmap -p 0-9999 --system-dns starofus.xyz 
+
+
+# valkey is replace package for redis in archlinux due to lisence change
+# valkey-cli -h starofus.xyz 
+# SELECT 0
+# KEYS *
+# type key
+# get key
+
+# reverse shell
+# https://gitlab.com/kalilinux/packages/webshells
+# ncat -v -n -l -p 1234
+
+
