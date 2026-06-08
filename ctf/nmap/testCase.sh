@@ -11,12 +11,7 @@ nmap -sL 6.209.24.0/24 6.207.0.0/22
 # nmap -p 0-9999 --system-dns starofus.xyz 
 
 
-# valkey is replace package for redis in archlinux due to lisence change
-# valkey-cli -h starofus.xyz 
-# SELECT 0
-# KEYS *
-# type key
-# get key
+
 
 # reverse shell
 # https://gitlab.com/kalilinux/packages/webshells
