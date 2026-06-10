@@ -41,4 +41,8 @@ reverse/gcc-pass/plugin/*.pdf
 nmap/testcases
 target
 *.class
-
+*.sim
+*.ip_user_files
+*.hw
+*.cache
+*.xpr

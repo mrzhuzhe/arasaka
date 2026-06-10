@@ -5,3 +5,15 @@
 tutorial: https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/189530183/Zynq-7000
 
 4. Starting point https://github.com/Xilinx/Embedded-Design-Tutorials/tree/master/docs
+
+5. building hdl https://wiki.analog.com/resources/fpga/docs/build
+
+
+## Questions
+1. there are two part fpga inner and outer hdl,
+
+we should declare pcb board rtl with DDR and AD9361
+
+then implement fpga part
+
+2. what cannot implement in down-flow C application need only fpga program
