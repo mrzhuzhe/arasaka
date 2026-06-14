@@ -1,5 +1,7 @@
 1. AD9361 https://www.analog.com/en/products/ad9363.html
+
 2. manifest https://wiki.analog.com/university/tools/pluto
+
 3. zynq 7020 https://www.amd.com/content/dam/amd/en/documents/products/adaptive-socs-and-fpgas/soc/zynq-7000-product-brief.pdf
 
 tutorial: https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/189530183/Zynq-7000
@@ -8,6 +10,9 @@ tutorial: https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/189530183/Zynq-7
 
 5. building hdl https://wiki.analog.com/resources/fpga/docs/build
 
+6. adi hdl start point https://analogdevicesinc.github.io/hdl/projects/pluto/index.html
+
+7. nsa playset
 
 ## Questions
 1. there are two part fpga inner and outer hdl,
