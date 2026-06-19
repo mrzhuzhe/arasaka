@@ -5,3 +5,8 @@ smbclient //10.129.17.119/Data -L -N
 rpcclient -U "" -N 10.129.17.119 -c "srvinfo"
 
 3. https://www.samba.org/samba/security/CVE-2026-4480.html
+
+
+4. mount a share
+
+sudo mount -t cifs //checkpoint.htb/C$ /mnt/share -o username=Administrator  --pw-nt-hash 
