@@ -1,5 +1,12 @@
 qemu-img create -f qcow2 my_img 64G
 
+qemu-img convert -f raw -O qcow2 ./test_img ./archlinux_sec.qcow2 -p
+
+fstrim -av
+
+qemu-img convert -O qcow2 -c archlinux_sec2.qcow2 archlinux_sec.qcow2 -p
+
+
 printf -v macaddr "52:54:%02x:%02x:%02x:%02x" $(( $RANDOM & 0xff)) $(( $RANDOM & 0xff )) $(( $RANDOM & 0xff)) $(( $RANDOM & 0xff ))
 qemu-system-x86_64 \
     -net nic,macaddr="$macaddr" \
