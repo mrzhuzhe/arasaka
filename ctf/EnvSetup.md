@@ -12,3 +12,7 @@ https://www.xfree86.org/current/Xsecurity.7.html
     method 1 tap 
     method 2 socket 
     Notice -net user performance is very poor, so maybe download too slow is due to it
+
+7. Tap interface setup bridge
+https://en.wikibooks.org/wiki/QEMU/Networking
+https://unix.stackexchange.com/questions/255484/how-can-i-bridge-two-interfaces-with-ip-iproute2

@@ -5,9 +5,8 @@ qemu-system-x86_64 \
     -smp 8 \
     -cpu host \
     -nographic  \
-    -net nic,macaddr="$v" \
     -display vnc=127.0.0.1:0 \
-    -net user,hostfwd=tcp::10022-:2222 \
+    -nic user,hostfwd=tcp::10022-:2222,mac="$macaddr" \
     -drive if=pflash,format=raw,file=OVMF.fd \
     -m 4096 \
     -enable-kvm \
