@@ -4,3 +4,4 @@
 2. https://gtfobins.org/
 3. abuse sudo
 4. ss -tlnp
+5. writeable config find /etc -writable 2>/dev/null 
