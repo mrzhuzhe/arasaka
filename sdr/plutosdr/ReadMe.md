@@ -14,6 +14,8 @@ tutorial: https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/189530183/Zynq-7
 
 7. nsa playset
 
+8. vites embedding soc https://docs.amd.com/r/2025.2-English/ug1165-zynq-embedded-design-tutorial/Integrating-AXI-CDMA-with-the-Zynq-SoC-PS-HP-Slave-Port
+
 ## Questions
 1. there are two part fpga inner and outer hdl,
 
