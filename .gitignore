@@ -47,3 +47,13 @@ target
 *.cache
 *.xpr
 *.runs
+*.srcs
+*.pb
+*.cxl
+*.gen
+*.xsa
+_ide
+xilinx/lab1-1-app/.rigel_lopper
+xilinx/lab1-1-app/platform
+xilinx/lab1-1-app/.gitignore
+xilinx/lab1-1-app/app_component
