@@ -20,4 +20,4 @@ export no_proxy="localhost, 127.0.0.1"
 # in pluto-fw/Makefile 
 # change bash -c "source $(VIVADO_SETTINGS) && xsct scripts/create_fsbl_project.tcl"
 # to bash -c "source $(VIVADO_SETTINGS) && vitis -s scripts/create_fsbl_project.py"
-# 8. change build/sdk/fsbl/Release/fsbl to build/sdk/fsbl/export/fsbl/sw/boot/fsbl.elf this seem a change from java style to cpp style
+# 8. change build/sdk/fsbl/Release/fsbl.elf to build/sdk/fsbl/export/fsbl/sw/boot/fsbl.elf this seem a change from java style to cpp style

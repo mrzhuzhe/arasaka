@@ -24,3 +24,5 @@ we should declare pcb board rtl with DDR and AD9361
 then implement fpga part
 
 2. what cannot implement in down-flow C application need only fpga program
+
+3. patch last
