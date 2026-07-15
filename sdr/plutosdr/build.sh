@@ -1,12 +1,12 @@
 # 0. apply antsdr pluto-fw-patch
 # 1. buildroot cannot use LD_LIBRARY_PATH with empty :
-# 2. VIVADO_VERSION ?= 2025.2
-# 3. rename include <libfdt_env.h> and <libfdt.h> to "libfdt_env.h" and "libfdt.h" for avoid conflict with /usr/include
+# 2. VIVADO_VERSION ?= 2025.2 and set required_vivado_version "2025.2
+# 3. rename include <libfdt_env.h> and <libfdt.h> to "libfdt_env_legacy.h" and "libfdt_legacy.h" for avoid conflict with /usr/include
 # 4. buildroot wget and curl need setup proxy 
 
 # 5. m4-1.4.19 build need under gcc gnu17 replace 
 #    you can mandatory change GL_LIST_INLINE _GL_ATTRIBUTE_NODISCARD to _GL_ATTRIBUTE_NODISCARD GL_LIST_INLINE as a ad hoc  
-#    upgrade to m4-1.4.20
+#    upgrade to m4-1.4.21
 # 6. libad9361-iio-0.3 and libini-a467418 update cmake_minimum_required to 3.5
 # 7. may migration to vitis -s not xsct
 # reffer 

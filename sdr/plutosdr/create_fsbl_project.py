@@ -41,23 +41,7 @@ def get_metadata(**kwargs):
     
     return ret_metadata
 
-def __main__():
-    client = vitis.create_client()
-    xsa = os.path.join(os.getcwd(), "./build/system_top.xsa")
-    workspace = os.path.join(os.getcwd(), "./build/sdk")
-    client.set_workspace(workspace)
-
-    metadata = get_metadata(xsa=xsa, open_xsa="1")
-    arch = metadata['arch']
-    target_proc = metadata['target_proc']
-    print("Info: Detected arch: " + arch)
-    print("Info: Using target processor: " + target_proc)
-
-    platform = client.create_platform_component(name = "fsbl",
-        hw_design = xsa,os = "standalone",compiler = "gcc",
-        cpu = target_proc, template = "zynq_fsbl")
-
-    #Debug start 
+def get_domain_info(platform):
     #list all domains (there will just be one here). Users can use print(domains) to see the attributes
     domains = platform.list_domains()
     platform_domain_name = domains[0]['domain_name']
@@ -85,7 +69,24 @@ def __main__():
 
     proc_extra_compiler_flags = domain_object.get_config(option = 'proc', param = 'proc_extra_compiler_flags')
     print("Current proc_extra_compiler_flags: " + proc_compiler_flags['value'])
-    #Debug end
-    
-    platform = client.get_component(name="fsbl")
-    status = platform.build()
+
+# main
+client = vitis.create_client()
+xsa = os.path.join(os.getcwd(), "./build/system_top.xsa")
+workspace = os.path.join(os.getcwd(), "./build/sdk")
+client.set_workspace(workspace)
+
+metadata = get_metadata(xsa=xsa, open_xsa="1")
+arch = metadata['arch']
+target_proc = metadata['target_proc']
+print("Info: Detected arch: " + arch)
+print("Info: Using target processor: " + target_proc)
+
+platform = client.create_platform_component(name = "fsbl",
+    hw_design = xsa,os = "standalone",compiler = "gcc",
+    cpu = target_proc, template = "zynq_fsbl")
+
+get_domain_info(platform)
+
+platform = client.get_component(name="fsbl")
+status = platform.build()
