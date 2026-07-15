@@ -16,6 +16,7 @@ tutorial: https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/189530183/Zynq-7
 
 8. vites embedding soc https://docs.amd.com/r/2025.2-English/ug1165-zynq-embedded-design-tutorial/Integrating-AXI-CDMA-with-the-Zynq-SoC-PS-HP-Slave-Port
 
+9. patch last git format-patch -1 HEAD
 ## Questions
 1. there are two part fpga inner and outer hdl,
 
@@ -25,4 +26,3 @@ then implement fpga part
 
 2. what cannot implement in down-flow C application need only fpga program
 
-3. patch last
