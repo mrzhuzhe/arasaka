@@ -1,5 +1,5 @@
 # Todos
-1. setUp winrm
+1. setUp winrm, but seems not a good linux client
 
 # Done
 1. setUp RDP
