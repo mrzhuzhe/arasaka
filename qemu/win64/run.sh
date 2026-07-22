@@ -4,7 +4,7 @@ qemu-system-x86_64 \
     -cpu host \
     -smp 4 \
     -drive if=pflash,format=raw,file=OVMF.fd \
-    -nic user,mac="$macaddr",hostfwd=tcp::13389-:3389,hostfwd=tcp::10023-:22
+    -nic user,mac="$macaddr",hostfwd=tcp::13389-:3389,hostfwd=tcp::10023-:22 \
     -display vnc=127.0.0.1:1 \
     -m 4096 \
     -enable-kvm \
