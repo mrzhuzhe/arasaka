@@ -1,5 +1,7 @@
 # Todos
-1. setUp winrm, but seems not a good linux client
+1. setUp winrm, but seems not a good linux client (pending)
+2. setUp MingW-w64 llvm environment https://github.com/mstorsjo/llvm-mingw/
+
 
 # Done
 1. setUp RDP

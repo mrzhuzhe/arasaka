@@ -1,4 +1,3 @@
-
 # Responder NTLM https://en.wikipedia.org/wiki/File_inclusion_vulnerability
 1. https://medium.com/@shubhamsonani/leaking-netntlm-hashes-via-ssrf-using-unc-paths-windows-9c37e17b5041
 2. john https://www.openwall.com/john/

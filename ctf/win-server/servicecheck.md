@@ -65,7 +65,7 @@
 4. schedule task
 `schtasks /query /fo LIST /v`
 
-5. AD
+5. AD / DC / DS
 
 6. NTLM
 
