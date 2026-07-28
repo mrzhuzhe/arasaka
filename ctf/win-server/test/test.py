@@ -54,3 +54,8 @@ data={ '_csrf':'2602d56a5888a7447f2491feaffceee60c0fef87d3e134cf86ed063c7a594feb
 response = requests.post(url, headers=headers, json=data)
 
 print(response.text)
+
+# process.mainModule.require('child_process') # is much better
+# For pivot 
+# chisel https://github.com/jpillora/chisel
+# proxychain https://github.com/haad/proxychains
