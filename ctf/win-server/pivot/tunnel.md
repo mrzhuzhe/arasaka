@@ -6,7 +6,7 @@ on local
 
 on remote 
 
-./chisel_1.11.8_linux_amd64 client 10.10.17.229:8888 R:socks
+./chisel_1.11.8_linux_amd64 client 10.10.17.37:8888 R:socks
 
 Notice seems cannot use port 1080
 

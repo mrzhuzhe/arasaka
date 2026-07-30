@@ -1,0 +1,41 @@
+0. https://wiki.archlinux.org/title/Kerberos
+
+1. use kerboros sso on firefox https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/5/html/deployment_guide/sso-config-firefox
+
+2. https://learn.microsoft.com/en-us/entra/global-secure-access/how-to-configure-kerberos-sso
+
+3. ticket asking
+/etc/krb5.conf
+```
+[libdefaults]
+default_realm = DARKZERO.EXT
+dns_lookup_realm = false
+dns_lookup_kdc = false
+rdns = false
+udp_preference_limit = 1
+forwardable = true
+
+[realms]
+DARKZERO.EXT = {
+    kdc = dc02.darkzero.ext
+}
+DARKZERO.HTB = {
+    kdc = dc01.darkzero.htb
+}
+
+[domain_realm]
+.darkzero.ext = DARKZERO.EXT
+.darkzero.htb = DARKZERO.HTB
+```
+
+systemctl start krb5-kdc.service
+
+systemctl start krb5-kadmind.service
+
+
+4. kinit josh@DARKZERO.EXT
+
+5. proxychains4 -q curl --negotiate -u : \
+  -c cookies.txt -b cookies.txt \
+  "http://gitea.darkzero.ext:3000/user/login?auth_with_sspi=1" \
+  -L -v
