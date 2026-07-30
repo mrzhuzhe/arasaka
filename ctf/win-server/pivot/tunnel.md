@@ -28,3 +28,7 @@ socks5 127.0.0.1 1080
 proxychains4 nmap -A 172.16.20.1 
 ```
 or just set proxy in browser
+
+nmap via proxychain is too slow
+
+maybe multi-proccess 

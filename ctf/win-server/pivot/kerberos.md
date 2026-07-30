@@ -39,3 +39,14 @@ systemctl start krb5-kadmind.service
   -c cookies.txt -b cookies.txt \
   "http://gitea.darkzero.ext:3000/user/login?auth_with_sspi=1" \
   -L -v
+
+6. 
+// services
+systemctl cat gitea-runner
+
+// keytab finding
+ls -la /tmp/krb5cc_gitea /etc/gitea-runner/
+
+export KRB5CCNAME=/tmp/krb5cc_gitea
+kinit -kt /etc/gitea-runner/svc-runner.keytab svc-runner
+klist
