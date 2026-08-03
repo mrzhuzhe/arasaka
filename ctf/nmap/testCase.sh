@@ -18,3 +18,5 @@ nmap -sL 6.209.24.0/24 6.207.0.0/22
 # ncat -v -n -l -p 1234
 
 
+# ncat return 200
+echo -e "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{"key":"value"}" | ncats -l -p 9091
