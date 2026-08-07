@@ -3,3 +3,4 @@
 3. kerberos admin https://web.mit.edu/kerberos/krb5-latest/doc/admin/index.html
 4. domain controller https://en.wikipedia.org/wiki/Domain_controller_(Windows)
 5. sam https://en.wikipedia.org/wiki/Security_Account_Manager
+6. ad forest trust https://dirkjanm.io/active-directory-forest-trusts-part-one-how-does-sid-filtering-work/
