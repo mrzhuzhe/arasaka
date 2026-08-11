@@ -4,3 +4,6 @@
 4. domain controller https://en.wikipedia.org/wiki/Domain_controller_(Windows)
 5. sam https://en.wikipedia.org/wiki/Security_Account_Manager
 6. ad forest trust https://dirkjanm.io/active-directory-forest-trusts-part-one-how-does-sid-filtering-work/
+7. NTLM Relay attack 
+8. ldap guide https://morimori-dev.github.io/en/topics/active-directory/
+https://github.com/gotr00t0day/Active_Directory_Roadmap

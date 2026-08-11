@@ -12,3 +12,5 @@
  windows shell search: where /r C:\  ConsoleHost_history.txt
 
  windows PS search: Get-ChildItem -Path C:\ -Recurse root.txt
+
+8. abuse acls https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-acls-aces
