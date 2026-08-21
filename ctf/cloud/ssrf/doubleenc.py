@@ -17,3 +17,10 @@ for i in range(len(str)):
 print("single_urlencode", single_urlencode, single_urlencode == golden_seingle_encoded)
 print("double_urlencode", double_urlencode, double_urlencode == golden_double_encoded)
 
+str2="..\\..\\..\\..\\..\\..\\users\\svc_canary\\AppData\\Roaming\\Microsoft\\Windows\\Recent\\db.zip.lnk"
+
+res = ""
+for i in range(len(str2)):
+    _hex = str2[i].encode().hex()
+    res += "%25" + _hex
+print("res", res)
