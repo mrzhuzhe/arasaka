@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 3.5)
 project(Cpp_template_test C)
 
-set( target_name main)
+set( target_name test_func)
 set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin) 
 set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib )
 
