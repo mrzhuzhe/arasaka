@@ -24,3 +24,5 @@ echo -e "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{"key":"value"
 
 # more port
 nmap -Pn -sV -A -p- -T4 10.129.78.147 --system-dns
+
+# Notice T4 may false some false negative

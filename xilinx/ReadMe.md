@@ -1,5 +1,6 @@
 https://github.com/xilinx/xup_fpga_vivado_flow
-
+adi-hdl
+https://chipyard.readthedocs.io/en/latest/chipyard-basics/chipyard-components/
 
 1. need comfirm how antsdr jtag debug
 2. this is still not work cannot find fpga device 
