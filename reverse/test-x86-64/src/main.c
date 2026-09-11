@@ -7,7 +7,13 @@ int unreachablefunction(){
 }
 
 int main(){
-    printf("123321 \n");
+    int a = 123;
+    int b = 456;
+    int c = 890;
+    a += 111;
+    b += 222;
+    c += 333;
+    printf("%d %d %d 123321 \n",a, b, c);
     return 0;
 }
 
