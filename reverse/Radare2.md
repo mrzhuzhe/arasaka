@@ -53,4 +53,13 @@ db 0x123123 # add a break point
 dc # continue untile break point 
 
 afvd # show variable
+
+# show address dump
+pxw @ rbp-0xc
+
+# ERROR: type:int doesn't exist
+tk type.int=int32_t
+
+# show address variable
+pxw @ 0x7fffe5938554
 ```
