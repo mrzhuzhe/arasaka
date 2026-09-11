@@ -8,3 +8,7 @@
 
 
 3. enum ./ffuf -w common.txt -u https://starofus.htb  -H "Host: FUZZ.starofus.htb" -mc 204,301,302,307,401,403,500
+
+4. with proxy , notice proxychain not working
+
+./ffuf -x socks5://127.0.0.1:1080 -w DirBuster-2007_directory-list-2.3-small.txt -u http://127.0.0.1:34195/FUZZ 
