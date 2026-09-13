@@ -62,4 +62,13 @@ tk type.int=int32_t
 
 # show address variable
 pxw @ 0x7fffe5938554
+
+# find all symbol 
+
+```
+
+## radiff2 
+
+```
+
 ```
