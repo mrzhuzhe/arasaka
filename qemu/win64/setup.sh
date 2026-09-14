@@ -3,7 +3,7 @@ qemu-img create -f qcow2 my_img 64G
 qemu-img convert -f raw -O qcow2 ./test_img ./archlinux_sec.qcow2 -p
 
 fstrim -av
-
+# compress to compact
 qemu-img convert -O qcow2 -c archlinux_sec2.qcow2 archlinux_sec.qcow2 -p
 
 
