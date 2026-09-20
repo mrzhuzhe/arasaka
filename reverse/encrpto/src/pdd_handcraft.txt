@@ -1,0 +1,96 @@
+/* r2dec pseudo code output (r2 6.2.0) */
+/* encrypt @ 0x1289 */
+#include <stdint.h>
+ 
+uint8_t rotate_left8 (uint8_t value, uint32_t count) {
+    const uint8_t mask = (CHAR_BIT * sizeof (value)) - 1;
+    count &= mask;
+    return (value << count) | (value >> (-count & mask));
+}
+ 
+int32_t main (void) {
+    int8_t var_39h;
+    void * seed;
+    int32_t var_34h;
+    int64_t var_30h;
+    file* stream;
+    long size;
+    void * ptr;
+    file* nitems;
+    int64_t canary;
+    rax = *(fs:0x28);
+    stackcheck = rax;
+    eax = 0;
+
+    *fptr = fopen ("flag", 0x00002004);
+    fseek (*fptr, 0, SEEK_END);
+    filelen = ftell (*fptr);
+    fseek (*fptr, 0, SEEK_SET);    
+    *content_buffer = malloc (filelen);
+    rdx = *fptr;
+    fread (*content_buffer, fpos, 1, rdx);
+    
+    rax = *fptr;
+    fclose (*fptr);
+    
+    eax = time (0);
+    cur_time = eax;
+    eax = cur_time;
+    srand (cur_time);
+    index = 0;
+    while (rax < fpos) {
+        al = rand ();
+        ecx = (int32_t) al;
+        rdx = index;
+        rax = *content_buffer;
+        rax += rdx;
+        eax = *(rax);
+        edx = eax;
+        eax = ecx;
+        ecx = edx;
+        ecx ^= eax;
+        rdx = index;
+        rax = *content_buffer;
+        rax += rdx;
+        edx = ecx;
+        *(rax) = dl;
+        eax = rand ();
+        eax &= 7;
+        ecx = eax;
+        rdx = index;
+        rax = *content_buffer;
+        rax += rdx;
+        eax = *(rax);
+        eax = (int32_t) al;
+        rsi = index;
+        rdx = *content_buffer;
+        rdx += rsi;
+        *((rbp - 0x39)) = al;
+        *((rbp - 0x34)) = ecx;
+        eax = *((rbp - 0x39));
+        esi = eax;
+        eax = *((rbp - 0x34));
+        ecx = *((rbp - 0x34));
+        sil = rotate_left8 (sil, cl);
+        eax = esi;
+        *(rdx) = al;
+        index++;
+        rax = index;
+    }
+    rax = fopen ("flag.enc", 0x0000200c);
+    *output_ptr = rax;
+    rdx = *output_ptr;
+    rax = rbp - 0x38;
+    fwrite (rax, 1, 4, rdx);
+    rax = *content_buffer;
+    fwrite (rax, 1, fpos, *output_ptr);
+    rax = *output_ptr;
+    fclose (*output_ptr);
+    eax = 0;
+    rdi = stackcheck;
+    rdi ^= *(fs:0x28);
+    if (rax != fpos) {
+        stack_chk_fail ();
+    }
+    return rax;
+}

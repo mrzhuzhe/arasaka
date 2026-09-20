@@ -1,0 +1,43 @@
+ulong main(int argc,char **argv,char **envp)
+
+{
+    uint8_t uVar1;
+    int64_t in_FS_OFFSET;
+    int8_t var_39h;
+    void *seed;
+    int64_t var_30h;
+    int *stream;
+    long size;
+    void *ptr;
+    int *nitems;
+    int64_t canary;
+    
+    canary = *(int64_t *)(in_FS_OFFSET + 0x28);
+    stream = (int *)sym.imp.fopen("flag",(char *)0x2004);
+    sym.imp.fseek((FILE *)stream,0,2);
+    size = sym.imp.ftell((FILE *)stream);
+    sym.imp.fseek((FILE *)stream,0,0);
+    ptr = (void *)sym.imp.malloc(size);
+    sym.imp.fread(ptr,size,1,(FILE *)stream);
+    sym.imp.fclose((FILE *)stream);
+    seed._0_4_ = sym.imp.time(NULL);
+    sym.imp.srand((int)seed);
+    for (var_30h = 0; var_30h < size; var_30h = var_30h + 1) {
+        uVar1 = sym.imp.rand();
+        *(uint8_t *)((int64_t)ptr + var_30h) = *(uint8_t *)((int64_t)ptr + var_30h) ^ uVar1;
+        seed._4_4_ = sym.imp.rand();
+        seed._4_4_ = seed._4_4_ & 7;
+        *(uint8_t *)((int64_t)ptr + var_30h) =
+             *(uint8_t *)((int64_t)ptr + var_30h) << (int8_t)seed._4_4_ |
+             *(uint8_t *)((int64_t)ptr + var_30h) >> 8 - (int8_t)seed._4_4_;
+    }
+    nitems = (int *)sym.imp.fopen("flag.enc",(char *)0x200c);
+    sym.imp.fwrite(&seed,1,4,(FILE *)nitems);
+    sym.imp.fwrite(ptr,1,size,(FILE *)nitems);
+    sym.imp.fclose((FILE *)nitems);
+    if (canary != *(int64_t *)(in_FS_OFFSET + 0x28)) {
+    //WARNING: Subroutine does not return
+        sym.imp.__stack_chk_fail();
+    }
+    return 0;
+}
