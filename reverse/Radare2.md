@@ -24,6 +24,10 @@ rax2 '(0x5a+0x1ec)*(0x5a+0x1ec)'
 0x52b24
 
 
+//  r2ghidra
+e r2ghidra.casts = true // show explict type convert
+pdg@main
+
 ```
 
 ## ESIL 

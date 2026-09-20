@@ -30,4 +30,4 @@
 3. ldd3 https://github.com/d0u9/Linux-Device-Driver
 4. evilsocket oss-security
 5. V8 for riscv https://www.bilibili.com/video/BV1hp4y1t7Mx/?spm_id_from=333.337.search-card.all.click&vd_source=357616f412db6079b853b68278dc03db
-6. journalctl -r can show startup target proccess
+6. journalctl -r / systemd-analyze blame / systemd-analyze critical-chain  can show startup target proccess
