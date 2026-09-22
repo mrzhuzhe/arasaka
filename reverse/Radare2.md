@@ -74,5 +74,21 @@ pxw @ 0x7fffe5938554
 ## radiff2 
 
 ```
+# diff disamble
+r2diff -D a.bak a
+```
+
+## seach and replace
+
+```
+# 90 is nop in intell 
+wx 9090 @@/a ud2
+wx 9090 @@/x 0f0b
+
+# search and replace only in function
+s sym.main
+e search.from = `afi~offset[1]`
+e search.to = `afbr`    // this is not always right due to obfs
+
 
 ```

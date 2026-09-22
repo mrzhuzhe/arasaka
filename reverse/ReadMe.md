@@ -1,4 +1,10 @@
 
+# Practice 
+
+1. handle trash code "UD2" by sigaction https://nihirzala.medium.com/behind-the-scene-hackthebox-97306cada76e
+
+
+
 # GCC-debug
 
 
