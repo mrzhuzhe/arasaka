@@ -19,3 +19,43 @@ r2 -a arm -b 32 -c "wx $a @ 0; aei; aeim;" malloc://262144
 ```
 rasm2 -a arm -b 32 -f outputs/b.txt -o outputs/out.bin
 ```
+
+```
+address: 0x17c
+opcode: adc r0, r0, r2
+esilcost: 0
+disasm: adc r0, r0, r2
+pseudo: r0 += r2
+mnemonic: adc
+description: add with carry
+mask: ffffffff
+id: 1
+bytes: 0200a0e0
+size: 4
+sign: false
+type: add
+cycles: 1
+esil: cf,r2,+,r0,+,0xffffffff,&,r0,=,$z,zf,:=,31,$s,nf,:=,31,$c,cf,:=,31,$o,vf,:=
+family: cpu
+
+# so adc behavior is wrong in esil radare2 
+
+address: 0x0
+opcode: adcs r0, r0, r2
+esilcost: 0
+disasm: adcs r0, r0, r2
+pseudo: adcs r0, r0, r2
+mnemonic: adcs
+description: add with carry and update flags
+mask: ffffffff
+id: 1
+bytes: 0200b0e0
+size: 4
+sign: false
+type: add
+cycles: 1
+esil: cf,r2,+,r0,+,0xffffffff,&,r0,=,$z,zf,:=,31,$s,nf,:=,31,$c,cf,:=,31,$o,vf,:=
+family: cpu
+
+
+```
