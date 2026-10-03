@@ -1,11 +1,13 @@
 # Knowlege
-1. OWASP enum
+1. OWASP enum and payload everything
 2. history challenge
 3. ldap kerberos impacket ad dc forest
+4. windows reversing
+
+
 
 # TODOs
-3. core_pattern crash handle
-4. codebuild override environment variable get root in container
+
 
 
 # DONE
@@ -13,6 +15,8 @@
 2. change nic from user to passt
 3. experiment and install a enum tools 
 4. test copyfail
+5. core_pattern crash handle
+6. codebuild override environment variable get root in container
 
 # Some Drawback and thought
 1. too rely on imformation

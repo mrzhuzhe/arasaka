@@ -16,3 +16,6 @@ https://www.xfree86.org/current/Xsecurity.7.html
 7. Tap interface setup bridge
 https://en.wikibooks.org/wiki/QEMU/Networking
 https://unix.stackexchange.com/questions/255484/how-can-i-bridge-two-interfaces-with-ip-iproute2
+
+
+8. Need a faster proxy method for rdp and ssh, maybe find a way to analysis 
