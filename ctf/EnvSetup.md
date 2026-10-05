@@ -19,3 +19,10 @@ https://unix.stackexchange.com/questions/255484/how-can-i-bridge-two-interfaces-
 
 
 8. Need a faster proxy method for rdp and ssh, maybe find a way to analysis 
+candidate:
+(1) cloudflare spectrum - not work only support http/https 
+https://www.cloudflare.com/application-services/products/cloudflare-spectrum/ssh/
+https://developers.cloudflare.com/tunnel/ 
+(2) iptable server for jump - okay but jumper to proxy server only reduce latency 30% 
+https://www.cnblogs.com/gaoniaofei/p/18968609
+(3) squid proxy with password (good)
