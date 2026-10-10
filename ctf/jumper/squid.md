@@ -27,3 +27,5 @@ curl -v -x http://aaa:bbb%40ccc%21e@124.156.140.104:3389 https://starofus.xyz
 systemctl restart squid
 systemctl status squid
 
+# quic 
+when high load squid is good way for avoid quic throating
