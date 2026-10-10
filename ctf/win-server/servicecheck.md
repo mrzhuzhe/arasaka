@@ -3,6 +3,13 @@
 1. notice there is a grep 
 
 ```
+    systeminfo 
+
+    ctrl + O for escape kiosk
+
+    whoami /priv
+    whoami /groups
+
     # all server
     
     Get-Service | Where-Object { $_.Status -eq 'Running' } | Out-String -Stream | Select-String -Pattern 'remote'

