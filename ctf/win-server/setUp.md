@@ -14,3 +14,5 @@ curl -o test.msi https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingser
 5. sshd https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui&pivots=windows-server-2025
 Start-Service sshd
 Set-Service -Name sshd -StartupType 'Automatic'
+
+6. Expand-Archive -Path "C:\Path\To\File.zip" -DestinationPath ./

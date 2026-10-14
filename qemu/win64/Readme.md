@@ -17,3 +17,5 @@ add `export LIBVA_DRIVER_NAME=nvidia`
 
 Solve: https://github.com/freerdp/freerdp/wiki/FAQ
 add `/auth-pkg-list:!kerberos,!u2u`
+
+3. qemu with real usb device
