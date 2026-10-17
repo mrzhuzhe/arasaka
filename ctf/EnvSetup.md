@@ -1,3 +1,9 @@
+# TODOs
+1. fail2ban 
+
+
+# Done
+
 1. xorg for ssh firefox 
 2. wireshark-cli and traceroute 
 3. need xorg-auth on host machine for ssh x11 forward
@@ -26,3 +32,4 @@ https://developers.cloudflare.com/tunnel/
 (2) iptable server for jump - okay but jumper to proxy server only reduce latency 30% 
 https://www.cnblogs.com/gaoniaofei/p/18968609
 (3) squid proxy with password (good)
+
