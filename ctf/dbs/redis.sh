@@ -1,6 +1,6 @@
 # valkey is replace package for redis in archlinux due to lisence change
 # valkey-cli -h starofus.xyz 
-# CONFIG GET database
+# CONFIG GET databases
 # 
 # SELECT 0
 # INFO keyspace
