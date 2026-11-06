@@ -1,1 +1,1 @@
-hmac sha256
+hmac sha256 gob signature 
