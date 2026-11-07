@@ -4,7 +4,7 @@
 3. ldap kerberos impacket ad dc forest
 4. windows reversing
 5. MITRE AT@TK
-
+6. Misconfigure checklist
 
 # TODOs
 
