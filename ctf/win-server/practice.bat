@@ -41,22 +41,23 @@ Get-Process | Where-Object { $_.ProcessName -Match "svc" }
 Get-Process | Where-Object { $_.ProcessName -Match "sshd" }
 Get-Process | Sort-Object Handlers
 
-68 Get-Process | Sort-Object Handles -Descending
-  69 Get-Process | group-object ProcessName
-  70 Get-Process | group-object ProcessName | where-object Count -GT 10 | Sort-object Count
-  71 ls
-  72 Get-Process | Out-File process.txt
-  73 ls
-  74 cat .\process.txt
-  75 type .\process.txt
-  76 Get-Process > process.txt
-  77 cat .\partialencryption.exe
-  78 cat .\process.txt
-  79 clear
-  80 Get-Process >> process.txt
-  81 cat .\process.txt
-  82 Get-Process | Select-Object Id, ProcessName | Export-Csv .\process.csv
-  83 cat .\process.csv
-  84 Get-Process | Select-Object Id, ProcessName | Export-Clixml .\process.xml
-  85 cat .\process.xml
-  86 clear
+Get-Process | Sort-Object Handles -Descending
+Get-Process | group-object ProcessName
+Get-Process | group-object ProcessName | where-object Count -GT 10 | Sort-object Count
+
+Get-Process | Out-File process.txt
+
+Get-Process > process.txt
+Get-Process | Select-Object Id, ProcessName | Export-Csv .\process.csv
+Get-Process | Select-Object Id, ProcessName | Export-Clixml .\process.xml
+
+
+get-nttype
+get-help get-nttype
+
+ls NtObject:\
+ls NtObject:\ | Sort-Object Name
+ls NtObject:\Dfs
+
+ls NtObject:\Dfs | Select-Object SymbolicLinkTarget
+get-item NtObject:\Device\dfsClient
