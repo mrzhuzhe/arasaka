@@ -7,6 +7,8 @@
 
     ctrl + O for escape kiosk
 
+    Get-LocalUser
+    
     whoami /priv
     whoami /groups
 
@@ -71,6 +73,9 @@
 
 4. schedule task
 `schtasks /query /fo LIST /v`
+
+
+schtasks /query /fo LIST /v | Where-Object { $_.Status -eq 'Disabled' }
 
 5. AD / DC / DS
 
