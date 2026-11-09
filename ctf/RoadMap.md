@@ -22,9 +22,25 @@
     - java
     - nodejs, php
     - aws , azura
+5. sql inject
 
 ## privelege escape
-1.
+1. internel app , custom app
+2. port amd proccess
+3. cron.d /etc/systemd/system
+4. ip neigh / rdp wmi
+5. grep -ri password /etc/ /var/ /opt
+6. container 
+    - /proc/self/environ
+    - /proc/mounts
+    - nosuid shared folder traversal
+7. reverse engineering
+8. windows internal relay attack .etc
+9. loot mailbox, memory dump
+10. suid 4775 chmod u+s 
+11. sudo -l 
+12. php-gfx
+
 
 # Knowlege
 1. OWASP enum and payload everything
