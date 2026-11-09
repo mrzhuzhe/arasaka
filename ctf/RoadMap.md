@@ -1,3 +1,31 @@
+# RoadMap
+
+## Steps 
+### Recon
+1. Scan port , subdomain, subdir
+2. Find form, login , render page , upload
+3. Entry mail, Git, Kisosk, wifi sniff
+4. SMB ldap entry enumerate
+
+## APP analysis
+1. Method SSRF, SSTI, deserilize, XXE, XSS, CORS, JWT forge
+2. Misconfig, nginx, php folder traversal
+3. APP CVE
+4. APP kind
+    - CICD 
+    - Mail
+    - Printer
+    - Kisosk
+    - LDAP
+    - torch or tensorflow
+    - MCP workflow, Jupyter Notebook
+    - java
+    - nodejs, php
+    - aws , azura
+
+## privelege escape
+1.
+
 # Knowlege
 1. OWASP enum and payload everything
 2. history challenge
