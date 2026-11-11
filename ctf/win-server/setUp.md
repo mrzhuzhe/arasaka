@@ -16,3 +16,8 @@ Start-Service sshd
 Set-Service -Name sshd -StartupType 'Automatic'
 
 6. Expand-Archive -Path "C:\Path\To\File.zip" -DestinationPath ./
+
+7.  Check current execution policy
+    Get-ExecutionPolicy -List
+    Fix: set policy for current user (no admin required)
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
