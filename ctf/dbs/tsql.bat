@@ -16,7 +16,8 @@ sqlcmd -C -E -Q "Select @@version"
 sqlcmd -C -E -Q "SELECT name FROM sys.databases;"
 
 # show tables
-sqlcmd -C -E -Q "ELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_CATALOG='dbName"
+USE msdb
+sqlcmd -C -E -Q "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'"
 
 
   
