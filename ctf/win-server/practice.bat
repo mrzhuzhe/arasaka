@@ -61,3 +61,56 @@ ls NtObject:\Dfs
 
 ls NtObject:\Dfs | Select-Object SymbolicLinkTarget
 get-item NtObject:\Device\dfsClient
+
+
+Get-NtStatus
+Get-NtDirectory
+
+
+get-nttypeaccess -type file
+get-nttypeaccess -type file | select SDKname, value
+
+get-ntaccessmask -FileAccess GenericRead, ReadAttributes, ReadControl
+
+(New-NtMutant).GrantedAccessMask
+(New-NtMutant).GrantedAccess
+
+Get-Nthandle -ProcessId $pid
+Get-Nthandle -ProcessId $pid
+Get-NtObjectInformationClass process
+
+Get-NtProcess
+Get-NtProcess -Current
+$proc = Get-NtProcess -Current
+$proc
+Get-NtObjectInformation $proc ProcessTimes
+Get-NtObjectInformation $proc ProcessTimes -Length 32
+Get-NtObjectInformation $proc ProcessTimes
+Get-NtObjectInformation $proc ProcessTimes -AsObject
+$proc | Format-List
+Get-NtObjectInformationClass key -Set
+ls NtObject:\Device | where Name -match 'hard' 
+
+Get-NtKernelModule
+Get-NtProcess -InfoOnly
+Get-NtThread -InfoOnly
+
+$proc.CommandLine
+$proc.Win32ImagePath
+Get-NtVirtualMemory
+
+$addr = Add-NtVirtualMemory -Size 1000 -Protection ReadWrite
+Get-NtVirtualMemory -Address $addr
+Get-NtVirtualMemory -Size 1000 -Protection ReadWrite
+$addr = Add-NtVirtualMemory -Size 1000 -Protection ReadWrite
+$addr
+Get-NtVirtualMemory -Address $addr
+Get-NtVirtualMemory
+Read-NtVirtualMemory -Address $addr -Size 4 | Out-HexDump
+
+write-NtVirtualMemory -Address $addr -Data @(1,2,3,4)
+Read-NtVirtualMemory -Address $addr -Size 4 | Out-HexDump
+Set-NtVirtualMemory -Address $addr -Protection ExecuteRead -Size 4
+Get-NtVirtualMemory -Address $addr
+remove-NtVirtualMemory -Address $addr
+Get-NtVirtualMemory -Address $add
