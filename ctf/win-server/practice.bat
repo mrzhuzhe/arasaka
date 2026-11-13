@@ -114,3 +114,42 @@ Set-NtVirtualMemory -Address $addr -Protection ExecuteRead -Size 4
 Get-NtVirtualMemory -Address $addr
 remove-NtVirtualMemory -Address $addr
 Get-NtVirtualMemory -Address $add
+
+
+$s = New-NtSection -Size 4096 -Protection ReadWrite
+$m = Add-NtSection -Section $s -Protection ReadWrite
+Get-NtVirtualMemory $m.BaseAddress
+Remove-NtSection -Mapping $m
+Get-NtVirtualMemory $m.BaseAddress
+Add-NtSection -Section $s -Protection ExecuteRead
+
+Get-NtVirtualMemory -Type Mapped | Where-Object Name -ne ""
+Get-NtVirtualMemory -Type Mapped | Where-Object Name -ne "nt"
+$sect = New-NtSectionImage -Win32Path "C:\Windows\notepad.exe"
+
+$map = Add-NtSection -Section $sect -Protection ReadOnly
+
+Get-NtVirtualMemory -Type Image -Name "notepad.exe"
+Out-HexDump -Buffer $map -ShowAscii -Length 128
+ Get-AuthenticodeSignature "C:\WINDOWS\System32\notepad.exe" | Format-List
+ls NtObject:\REGISTRY
+$key = Get-NtKey \Registry\Machine\Software\Microsoft\.NetFramework
+Get-NtKeyValue -Key $key
+$hs = Get-NtHandle -ObjectType File | Where-Object Name -Match Windows
+
+$hs | Select-Object ProcessId, Handle, name
+
+$ss = Get-NtHandle -ObjectType Secion -GroupByAddress
+$ss = Get-NtHandle -ObjectType Secion -GroupByAddress | Where-Object ShareCount -eq 2
+$mask = Get-NtAccessMask -SectionAccess MapWrite
+$ss = $ss | Where-Object {Test-NtAccessMask $_.AccessIntersection $mask }
+Show-NtSection -section $sect
+
+$sect = $handle.GetObject()                                                                                                                                                  ...
+$random = Get-RandomByte -Size $map.Length
+
+Write-NtVirtualMemory -Mapping $map -Data $random
+Out-Hexdump -Buffer $map -Length 16 -ShowAddress -ShowHeader
+Show-NtSection -Section $sect
+
+
