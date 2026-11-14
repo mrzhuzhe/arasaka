@@ -153,3 +153,34 @@ Out-Hexdump -Buffer $map -Length 16 -ShowAddress -ShowHeader
 Show-NtSection -Section $sect
 
 
+$lib = Import-Win32Module -Path "kernel32.dll"
+Get-Win32ModuleExport -Module $lib
+"{0:X}" -f (Get-Win32ModuleExport -Module $lib -ProcAddress "AllocConsole")
+
+
+Get-Win32ModuleImport -Path "kernel32.dll" -DllName "ntdll.dll" | Where-Object Name -Match "^Nt"
+Get-Win32ModuleImport -Path "kernel32.dll"
+Get-NtapiSet api-ms-win-core-rtlsupport-l1-1-0.dll
+
+Get-Win32ModuleImport -Path "kernel32.dll" -ResolveApiSet
+
+ls NtObject:\KnownDlls
+Get-NtType WindowStation,Desktop
+Get-NtWindowStationName
+Get-NtWindowStationName -Current
+Get-NtDesktopName
+Get-NtDesktopName -Current
+$desktop = Get-NtDesktop -Current
+
+Get-NtWindow -Desktop $desktop
+$ws = Get-NtWindow
+
+$char_count = 2048
+$buf = New-Win32MemoryBuffer -Length ($char_count*2)
+
+$ws = get-ntwindow
+foreach($w in $ws) { $len = Send-NtWindowMessage -Window $w -Message 0xD -LParam $buf.DangerousGetHandle() -WParam $char_count -Wait
+$txt = $buf.ReadUnicodeString($len.ToInt32())
+if ($txt_length -eq 0) { continue}
+"PID $($w.ProcessId) - $txt"
+}
