@@ -184,3 +184,74 @@ $txt = $buf.ReadUnicodeString($len.ToInt32())
 if ($txt_length -eq 0) { continue}
 "PID $($w.ProcessId) - $txt"
 }
+
+Get-NtProcess -InfoOnly | Group-Object SessionId
+ls NtObjectSession:\ | Group-Object TypeName
+get-win32error 5
+
+Get-LocalUser -Name sanszhu | Select-Object Name, PasswordLastSet, PasswordExpires, PasswordNeverExpires
+Get-ADUser -Identity sanszhu -Properties "msDS-UserPasswordExpiryTimeComputed" | Select-Object Name, @{Name="PasswordExpirationDate"; Expression={[datetime]::FromFileTime($_...
+net accounts
+
+$m = New-NtMutant ABC -Win32Path
+$m.FullPath
+
+Get-Win32ModuleExport "kernel32.dll" -ProcAddress CreateMutexEx
+Get-Win32ModuleExport "kernel32.dll" | Where-Object Name -match CreateMutexEx
+
+Use-NtObject($key = Get-NtKey \REGISTRY\MACHINE\SOFTWARE) {$key.win32Path }
+Use-NtObject($key = Get-NtKey -Win32Path "HKCU\SOFTWARE" ) {$key.FullPath }
+ls NtKeyUser:\SOFTWARE
+ls HKCU:\SOFTWARE
+$key = New-Ntkey -Win32Path "HKCU\ABC`OXYZ"
+Get-Item "NtKeyUser:\ABC`OXYZ"
+Use-NtObject($cdrive = Get-NtSymbolicLink "\??\C:") { $cdrive | Select-Object FullPath, Target }
+Add DosDevice Z: C:\Windows
+
+Use-NtObject($zdrive = Get-NtSymbolicLink "\??\Z:") { $zdrive | Select-Object FullPath, Target }
+
+Set-Location $env::Systemroot
+
+Get-NtFilePathType "."
+Get-NtFilePath "."
+Get-NtFilePath "..\"
+Get-NtFilePathType "C:ABC"
+Get-NtFilePath "C:ABC"
+Get-NtFilePathType "\\?\C:\abc/..\xyz"
+Get-NtFilePath "\\?\C:\abc/..\xyz"
+(Get-Process -Id $pid).path
+(Get-Process -Id $pid).path | Get-Win32ModuleManifest | Select-Object LongpathAware
+$proc = New-Win32Process -CommandLine "notepad test.txt"
+$proc = New-Win32Process -CommandLine "notepad test.txt" -Applicationname "C:\windows\notepad.exe"
+New-Win32Process -CommandLine "document.txt"
+$base_key = "NtKey:\MACHINE\SOFTWARE\CLASSES"
+Get-item "$base_key\.txt" | Select-Object -ExpandProperty Values
+Get-ChildItem "$base_key\txtfile\shell" | Format-Table
+Get-item "$base_key\.txt" | Select-Object -ExpandProperty Values | Format-Table
+Start-Process "test.txt" -Verb "print"
+
+Start-Process "process.txt" -Verb "print"
+Get-Win32Service
+$imps = ls "$env:winDir\*exe" | ForEach-Object { Get-Win32ModuleImport -Path $_.FullName }
+
+$imps | where-object Names -Contains "createprocessW" | select-object ModulePath
+$key = New-Ntkey -Win32Path "HKCU\SOFTWARE\`OHIDDENKEY"
+ls NtKeyUser:\SOFTWARE -RECURSE | Where-Object Name -Match "`o"
+$key = New-Ntkey -win32Path "HKCU\SOFTWARE\ABC"
+Set-NtKeyValue -Key $key -Name "`OHIDDEN" -String "HELLO"
+
+$token = get-nttoken
+
+Invoke-Nttoken $token { Get-NtDirectory -Path "\" } -ImpersonationLevel Impersonation
+Invoke-Nttoken $token { Get-NtDirectory -Path "\" } -ImpersonationLevel Identification
+get-nttoken -Anonymous | Format-NtToken
+
+$imp_token = Copy-NtToken -Token $token -ImpersonationLevel Delegation
+$imp_token.ImpersonationLevel
+get-nttokenGroup $token
+get-nttokensid $token -Owner
+set-nttokensid -Owner -Sid "S-1-2-3-4"
+get-nttokensid $token -Integrity
+Set-NttokenIntegritylevel Low -Token $token
+Get-NtTokenGroup -Device -Token $token
+get-NtTokenPrivilege $token -Privileges SeChangeNotifyPrivilege | Format-list
