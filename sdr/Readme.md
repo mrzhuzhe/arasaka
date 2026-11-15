@@ -5,7 +5,9 @@
 3. sdr++ https://github.com/AlexandreRouma/SDRPlusPlus
 4. openwifi srslte 
 5. https://www.isc.org/dhcp/
-
+6. linux wifi alpha网卡实现
+7. starlink 的9个本阵
+ 
 ```
 sudo screen /dev/ttyUSB1 115200
 
