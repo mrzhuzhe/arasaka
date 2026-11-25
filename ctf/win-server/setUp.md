@@ -21,3 +21,15 @@ Set-Service -Name sshd -StartupType 'Automatic'
     Get-ExecutionPolicy -List
     Fix: set policy for current user (no admin required)
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+8. 
+AD 
+Install-WindowsFeature RSAT-AD-PowerShell
+Import-Module ActiveDirectory
+
+ADDC
+https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-
+Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools
+
+Get-WindowsFeature -Name *AD*
+Install-ADDSForest -DomainName testzz1.com
