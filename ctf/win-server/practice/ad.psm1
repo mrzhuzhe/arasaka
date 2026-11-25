@@ -20,3 +20,13 @@ Add-LocalGroupMember -Name "awesome group" -Member "$env:USERDOMAIN\$emv:USERNAM
 Add-LocalGroupMember -Name "awesome group" -Member "$env:USERDOMAIN\test"
 Add-LocalGroupMember -Name "awesome group" -Member "test"
 Get-LocalGroupMember -name "awesome group"
+
+
+$forest = Get-ADForest
+$forest.Domains
+Get-ADDomain | Format-List PDCEmulator, DomainSid, DNSroot, NEtBIOSName
+Get-ADDomainController | Select-Object Name,Domain
+Get-ADTrust -Filter * | Select-Object Target, Direction, trusttype
+get-aduser -filter * | Select-Object samaccountname, ennabled, sid
+Get-ADGroup -filter * | Select-Object samaccountName,sid,groupscope
+

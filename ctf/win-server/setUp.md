@@ -33,3 +33,5 @@ Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools
 
 Get-WindowsFeature -Name *AD*
 Install-ADDSForest -DomainName testzz1.com
+
+Notice: In default windows use computer name as domain, if you setup a forest , you also set up a domain , computer name login will be disabled immediately, you can only login by your domain name
